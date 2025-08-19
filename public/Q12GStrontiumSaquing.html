@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h2> Q1 2nd Graded Exercise submitted by Strontium</h2>
+
+    Meal Price: <input id="mealprice"><br><br>
+    Tip: <input id="tip"><br><br>
+    Service Charge: <input id="service"><br><br>
+
+    <button onclick="totalMeal()">Calculate Total</button>
+    <p id="result"></p>    
+
+    <script>
+        function totalMeal() {
+              var mealprice = document.getElementById('mealprice').value;
+              var tip = document.getElementById('tip').value;
+              var service = document.getElementById('service').value;
+
+              var cost = Number(mealprice) + Number(tip) + (Number(service)/100 * Number(mealprice));
+              document.getElementById('result').innerHTML = "Total Meal: " + cost.toFixed(2);
+
+            
+         
+        }
+    </script>
+
+</body>
+</html>
