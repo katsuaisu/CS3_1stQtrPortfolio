@@ -1,0 +1,18 @@
+<p>Meal Price: </p>           <input id="meal" type="number"> <br>
+<p> Tip: </p>                 <input id="tip" type="number"> <br>
+<p>Service Charge: </p>       <input id ="servicec" type="number"> <br>
+<button onclick="meow()"> Accept Input</button>
+<div id="meowing"></div>
+
+<script>
+function meow() {
+    meal = Number(meal.value);
+    tip = Number(tip.value);
+    servicec = Number(tip.value);
+
+    total = (meal + tip) + (meal * servicec / 100);
+    meowing.innerHTML  = "Total Amount:  Php" + total.toPrecision(6);
+    alert("Total Amount:  PHP" + total.toFixed(2));
+
+}
+</script>
