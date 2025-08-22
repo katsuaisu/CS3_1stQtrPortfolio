@@ -1,0 +1,26 @@
+<html>
+    <body>
+        <h2> Q1 3rd Graded Exercise submitted by Rei Saquing of 9-Strontium </h2>
+        <p>Guess the number : ****</p> <br><br>
+        <p>The number is from 1 to 100</p> <br><br>
+        <p> Enter your guess: </p> <input type="number" id="guess">
+        <button onclick="check()">Check it!</button>
+        <p id="result"></p>
+    </body>
+
+
+    <script>
+        let randomnumbersarecool = Math.floor(Math.random() * 100) + 1;
+        function check() {
+            let guess = document.getElementById("guess").value
+            if (guess < randomnumbersarecool) {
+                document.getElementById("result").innerHTML = "Guess higher!!!";
+            } else if ( guess > randomnumbersarecool ) {
+                document.getElementById("result").innerHTML = "Guess lower!!!";
+            } else {
+                document.getElementById("result").innerHTML = "Yay, you're correct!!! :3";
+            }
+        }
+            
+    </script>
+</html>
