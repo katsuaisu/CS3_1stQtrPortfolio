@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Squeak...squeak? (Guess The Word!)</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Bagel Fat One', cursive;
+      color: #ff66b3;
+      background: url('https://dve-images.imggaming.com/original/p/2024/02/27/b8JI3bara4qLuwOlg9Y2su5j4ivadcSy-1709070509159.jpg') no-repeat center center fixed;
+      background-size: cover;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 4rem;
+      margin-top: 30px;
+      animation: bounce 1.5s infinite ease-in-out;
+      text-shadow: 3px 3px 6px rgba(255, 105, 180, 0.5);
+    }
+
+    p {
+      font-size: 1.3rem;
+      margin: 5px 0;
+    }
+
+    input[type=text] {
+      padding: 10px;
+      font-size: 1.2rem;
+      border-radius: 8px;
+      border: 2px solid #ff66b3;
+      text-align: center;
+      width: 50px;
+      margin-top: 15px;
+    }
+
+    button {
+      display: inline-block;
+      font-size: 1.2rem;
+      padding: 12px 20px;
+      margin: 10px;
+      text-decoration: none;
+      color: white;
+      background: linear-gradient(135deg, #ff66b3, #ff99cc);
+      border-radius: 15px;
+      border: none;
+      box-shadow: 0px 4px 10px rgba(255, 105, 180, 0.4);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #ff99cc, #ff66b3);
+      transform: scale(1.05) rotate(1deg);
+      box-shadow: 0px 6px 15px rgba(255, 105, 180, 0.6);
+      font-size: 30px;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+  <h1>Squeak...squeak? (Guess The Word!)</h1>
+  <p id="wordDisplay"></p>
+  <input type="text" id="guessInput" maxlength="1">
+  <br>
+  <button onclick="makeGuess()">Guess</button>
+  <button onclick="playAgain()">Play Again</button>
+  <p id="message"></p>
+
+  <script>
+    let secretWord = ["r", "a", "t", "t", "y", "r", "e", "i"];
+    let guessedWord = [];
+
+    function burger() { 
+      guessedWord = Array(secretWord.length).fill("_");
+      document.getElementById("wordDisplay").textContent = guessedWord.join(" ");
+      document.getElementById("message").textContent = "";
+      document.getElementById("guessInput").value = "";
+    }
+
+    function makeGuess() {
+      let guess = document.getElementById("guessInput").value.toLowerCase();
+      let correct = false;
+
+      for (let i = 0; i < secretWord.length; i++) {
+        if (secretWord[i] === guess) {
+          guessedWord[i] = guess;
+          correct = true;
+        }
+      }
+
+      document.getElementById("wordDisplay").textContent = guessedWord.join(" ");
+      document.getElementById("message").textContent = correct ? "Squeak :O 🐀" : "Squeak :C 🐀";
+      document.getElementById("guessInput").value = "";
+
+    
+      if (!guessedWord.includes("_")) {
+        document.getElementById("message").textContent = "SQUEAAAAAAAKKKK!!! :DDD (You got it!)"; 
+      }
+    }
+
+    function playAgain() {
+      burger(); 
+    }
+
+    burger(); 
+  </script>
+</body>
+</html>
