@@ -2,99 +2,282 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Saquing, Reign Mckayla's Portfolio!</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap" rel="stylesheet">
+  <title>Rei's Portfolio!</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      font-family: 'Bagel Fat One', cursive;
-      color: #ff66b3;
-      background: url('https://i.pinimg.com/1200x/9c/b0/56/9cb05631030867898d15f1928db3601a.jpg') no-repeat center center fixed;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background: url("https://i.pinimg.com/originals/fa/57/f4/fa57f4a4fb430d5cba4b5337eaaa9b39.gif") 
+                  no-repeat center center fixed;
       background-size: cover;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px;
+      color: #333;
+      min-height: 100vh;
     }
 
-    h1 {
-      font-size: 4rem;
-      margin-top: 30px;
-      animation: bounce 1.5s infinite ease-in-out;
-      text-shadow: 3px 3px 6px rgba(255, 105, 180, 0.5);
+    .browser-ui {
+      width: 90%;
+      max-width: 900px;
+      background: rgba(255, 255, 255, 0.35);
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      animation: popIn 0.6s ease;
+    }
+
+    .window-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 15px;
+      background: rgba(245, 243, 250, 0.7);
+      border-bottom: 1px solid rgba(200, 200, 200, 0.3);
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      transition: transform 0.2s ease;
+    }
+    .dot.red { background: #ff5f57; }
+    .dot.yellow { background: #ffbd2e; }
+    .dot.green { background: #28c840; }
+    .dot:hover { transform: scale(1.2); }
+
+    .tab-bar {
+      display: flex;
+      background: rgba(245, 243, 250, 0.4);
+      padding: 8px;
+      gap: 10px;
+      border-bottom: 1px solid rgba(200, 200, 200, 0.2);
+      flex-wrap: wrap;
+    }
+
+    .tab {
+      background: rgba(255, 255, 255, 0.3);
+      border: none;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      color: #555;
+      transition: all 0.25s ease;
+      backdrop-filter: blur(10px);
+      white-space: nowrap;
+    }
+
+    .tab:hover {
+      background: rgba(255, 255, 255, 0.6);
+      color: #007aff;
+      transform: translateY(-2px);
+    }
+
+    .tab.active {
+      background: #fff;
+      color: #000;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+      transform: translateY(-1px);
+    }
+
+    .content-container {
+      position: relative;
+      min-height: 400px;
+    }
+
+    .content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 25px;
+      opacity: 0;
+      transform: translateY(15px);
+      pointer-events: none;
+      transition: all 0.4s ease;
+      box-sizing: border-box;
+    }
+
+    .content.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+      position: relative;
+    }
+
+    .intro {
+      text-align: center;
+      padding: 40px 20px;
+      animation: slideUp 0.6s ease;
+    }
+
+    .intro h1 {
+      font-size: 2.4rem;
+      margin-bottom: 10px;
+      color: #111;
+    }
+
+    .intro p {
+      font-size: 1.1rem;
+      margin: 6px 0;
+      color: #444;
     }
 
     h2 {
-      font-size: 2rem;
-      text-shadow: 1px 1px 3px rgba(255, 105, 180, 0.4);
-      margin-top: 20px;
+      margin-top: 0;
+      font-size: 1.6rem;
+      background: linear-gradient(90deg, #007aff, #5ac8fa);
+      background-clip: text;          
+      -webkit-background-clip: text;  
+      color: transparent;             
+      -webkit-text-fill-color: transparent;
     }
 
-    p {
-      font-size: 1.3rem;
-      margin: 5px 0;
-    }
-
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin-top: 20px;
-    }
-
-    nav ul li {
-      margin: 15px 0;
-    }
-
-    nav ul li a {
-      display: inline-block;
-      font-size: 1.4rem;
-      padding: 15px 25px;
+    a {
+      color: #007aff;
       text-decoration: none;
-      color: rgb(255, 255, 255);
-      background: linear-gradient(135deg, #ff66b3, #ff99cc);
-      border-radius: 20px;
-      box-shadow: 0px 4px 10px rgba(255, 105, 180, 0.4);
-      transition: all 0.3s ease;
+      font-weight: 600;
+      transition: all 0.2s ease;
     }
 
-    nav ul li a:hover {
-      background: linear-gradient(135deg, #ff99cc, #ff66b3);
-      transform: scale(1.1) rotate(2deg);
-      box-shadow: 0px 6px 15px rgba(255, 105, 180, 0.6);
+    a:hover {
+      color: #0051c7;
+      text-shadow: 0 0 8px rgba(0,122,255,0.6);
     }
 
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+    .card {
+      background: rgba(255, 255, 255, 0.35);
+      border-radius: 16px;
+      padding: 20px;
+      margin: 15px 0;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      backdrop-filter: blur(15px) saturate(180%);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    @keyframes slideUp {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes popIn {
+      from {opacity: 0; transform: scale(0.9);}
+      to {opacity: 1; transform: scale(1);}
+    }
+
+    
+    @media (max-width: 768px) {
+      body {
+        padding: 20px;
+      }
+      
+      .tab-bar {
+        justify-content: center;
+      }
+      
+      .tab {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="browser-ui">
+    <div class="window-header">
+      <div class="dot red"></div>
+      <div class="dot yellow"></div>
+      <div class="dot green"></div>
+    </div>
 
-  <h2>Wanna get to know me more?</h2>
-  <p>Birthday: January 29, 2011</p>
-  <p>I like Chiikawa a lot.</p>
-  <p>I like HUMSS more than STEM.</p>
-  <p>I'm super excited to learn more about coding >:3</p>
-  <p>Honorable Mention: <a href="https://schlkatsu.neocities.org" target="_blank" 
-   style="color: hotpink; text-shadow: 1px 1px 4px rgba(255,105,180,0.8); font-weight: bold;">
-   I made my own website before!
-</a>
+    <div class="tab-bar">
+      <button class="tab active" onclick="openTab('intro')">Intro</button>
+      <button class="tab" onclick="openTab('work1')">First Exercise</button>
+      <button class="tab" onclick="openTab('work2')">Second Exercise</button>
+      <button class="tab" onclick="openTab('game')">Game!?</button>
+      <button class="tab" onclick="openTab('extra')">Glub...glub?</button>
+      <button class="tab" onclick="openTab('nextproject')">Next Project</button>
+    </div>
 
+    <div class="content-container">
+      <div class="content active" id="intro">
+        <div class="intro">
+          <h1>Hi, I'm Rei</h1>
+          <p><strong>Birthday:</strong> January 29, 2011</p>
+          <p><strong>Likes:</strong> Chiikawa, HUMSS, coding >:3</p>
+          <p>I even made <a href="https://schlkatsu.neocities.org" target="_blank">my own website</a> before!</p>
+          <p>I recently updated this page to make it more designed. It was the base code for my website but I scrapped it. Turns out it did have a use :3</p>
+        </div>
+      </div>
 
-  
-  <h1>Links to Rei's work!</h1>
-  <nav>
-    <ul>
-      <li><a href="./public/Q1_1stGraded.html">First Exercise</a></li>
-      <li><a href="./public/Q1_NonGraded.html">First Non-Graded Exercise</a></li>
-      <li><a href="./public/Q12GStrontiumSaquing.html">Second Graded Exercise</a></li>
-      <li><a href="./public/Q1G3StrontiumSaquing.html">Third Graded Exercise</a></li>
-      <li><a href="./public/FATHAMSTERCHILDREN.html">Game!?</a></li>
-      <li><a href="./public/reilovesjellypheesh.html">Glub...glub?</a></li>
-    </ul>
-  </nav>
+      <div class="content" id="work1">
+        <h2>First Exercise</h2>
+        <div class="card">
+          <p>✨ My very first CS exercise.</p>
+          <p><a href="./public/Q1_1stGraded.html">View Project →</a></p>
+        </div>
+      </div>
+
+      <div class="content" id="work2">
+        <h2>Second Exercise</h2>
+        <div class="card">
+          <p>📘 A continuation of exercises.</p>
+          <p><a href="./public/Q12GStrontiumSaquing.html">Check this one out →</a></p>
+        </div>
+      </div>
+
+      <div class="content" id="game">
+        <h2>Game!?</h2>
+        <div class="card">
+          <p>🐀 Can you guess the word?</p>
+          <p><a href="./public/FATHAMSTERCHILDREN.html">Play here →</a></p>
+        </div>
+      </div>
+
+      <div class="content" id="extra">
+        <h2>Glub...glub?</h2>
+        <div class="card">
+          <p>🐟 Goldfishes have a stroke and Jellyfishes respawn every few seconds.</p>
+          <p><a href="./public/reilovesjellypheesh.html">Dive in →</a></p>
+        </div>
+      </div>
+
+      <div class="content" id="nextproject">
+        <h2>Next Project</h2>
+        <div class="card">
+          <p>🚀 A preview of what I'm working on next. (AKA a placeholder) </p>
+          <p><a href="./public/nextproject.html">View Next Project →</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openTab(tabId) {
+      
+      document.querySelectorAll(".content").forEach(c => {
+        c.classList.remove("active");
+      });
+      
+      
+      document.querySelectorAll(".tab").forEach(t => {
+        t.classList.remove("active");
+      });
+      
+      
+      document.getElementById(tabId).classList.add("active");
+      event.currentTarget.classList.add("active");
+    }
+  </script>
 </body>
 </html>
-
-<script>
-  alert("Meow, meow meow!");
-</script>
