@@ -13,7 +13,7 @@
 
 ---
 ## Plan of Action
-1. I will set aside extra study sessions every week to review my weaker topics.2. I will ask questions in class and participate more during discussions.3. I will form a study group with classmates to share understanding.4. I will use online resources (videos, tutorials, practice problems) to reinforce learning.5. I will consult my teacher for clarification when needed. 6. Neocities for the win :DD
+1. I will set aside extra study sessions every week to review my weaker topics.2. I will ask questions in class and participate more during discussions.3. I will form a study group with classmates to share understanding. (Which means they give me Js knowledge I give them CSS knowledge) 4. I will use online resources (videos, tutorials, practice problems) to reinforce learning.5. I will consult my teacher for clarification when needed. 6. Neocities for the win :DD
 ---
 ## Class Activities Reflection
 ### Effective Activities
