@@ -4,11 +4,53 @@
 <head>
     <title>Tuesday Schedule</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+            display: flex;
+            gap: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            background-color: #f0f0f0;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: black;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+        }
+
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            width: 50%;
+        }
+
         th,
         td {
             border: 1px solid black;
             padding: 8px;
             text-align: center;
+        }
+
+        .media {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        img {
+            border-radius: 8px;
         }
     </style>
 </head>
@@ -25,7 +67,7 @@
 <body>
     <h1>Strontium Tuesday Schedule</h1>
 
-    <table style="border: 1px solid black; border-collapse: collapse;">
+    <table>
         <tr>
             <th>Time</th>
             <th>Class</th>
@@ -69,9 +111,11 @@
             <td>Music</td>
         </tr>
     </table>
-    
-    <a href="https://youtu.be/77suwtdWzpk?si=oHqAAv7P1BI8dSv0" target="_blank">Youtube Link</a>
-    <img src="https://i.pinimg.com/736x/fe/cd/65/fecd659698360d8a1e38cdfa86184990.jpg" alt="myimage" width="200">
+
+    <div class="media">
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/77suwtdWzpk?si=WEw0tCSh-dPl6qjz&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <img src="https://i.pinimg.com/736x/fe/cd/65/fecd659698360d8a1e38cdfa86184990.jpg" alt="myimage" width="370">
+    </div>
 
     <p>
         I chose "Again" by Fetty Wap as the Youtube video because this horrid schedule reminds me of 
